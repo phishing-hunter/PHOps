@@ -11,8 +11,6 @@ jobs:
   build-push:
     runs-on: ubuntu-latest
     if: github.actor == 'phishing-hunter'
-    container:
-      image: phishinghunter/cert-hunter:latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
