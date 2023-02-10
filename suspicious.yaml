@@ -1,0 +1,508 @@
+version: "0.0.1"
+minimum_score: 0
+# キーワードマッチング
+# キーワードとスコアをハッシュで記述してください。
+keywords:
+# Generic suspicious
+    'login': 25
+    'log-in': 25
+    'sign-in': 25
+    'signin': 25
+    'account': 25
+    'verification': 25
+    'verify': 25
+    'webscr': 25
+    'password': 25
+    'credential': 25
+    'support': 25
+    'activity': 25
+    'security': 25
+    'update': 25
+    'authentication': 25
+    'authenticate': 25
+    'authorize': 25
+    'wallet': 25
+    'alert': 25
+    'purchase': 25
+    'transaction': 25
+    'recover': 25
+    'unlock': 25
+    'confirm': 20
+    'live': 15
+    'office': 15
+    'service': 15
+    'manage': 15
+    'portal': 15
+    'invoice': 15
+    'secure': 10
+    'customer': 10
+    'client': 10
+    'bill': 10
+    'online': 10
+    'safe': 10
+    'form': 10
+
+# Apple iCloud
+    'appleid': 70
+    'icloud': 60
+    'iforgot': 60
+    'itunes': 50
+    'apple': 30
+
+# Email
+    'office365': 50
+    'microsoft': 60
+    'windows': 30
+    'protonmail': 70
+    'tutanota': 60
+    'hotmail': 60
+    'gmail': 70
+    'outlook': 60
+    'yahoo': 60
+    'google': 60
+    'yandex': 60
+
+# Social Media
+    'twitter': 30
+    'facebook': 30
+    'tumblr': 30
+    'reddit': 30
+    'youtube': 20 # some false positives
+    'linkedin': 30
+    'instagram': 30
+    'flickr': 30
+    'whatsapp': 30
+
+# Cryptocurrency
+    'localbitcoin': 70
+    'poloniex': 60
+    'coinhive': 70
+    'bithumb': 60
+    'kraken': 50 # some false positives
+    'bitstamp': 60
+    'bittrex': 60
+    'blockchain': 70
+    'bitflyer': 60
+    'coinbase': 60
+    'hitbtc': 60
+    'lakebtc': 60
+    'bitfinex': 60
+    'bitconnect': 60
+    'coinsbank': 60
+
+# Bank/money
+    'paypal': 70
+    'aupay': 60
+    'paypay': 60
+    'merpay': 60
+    'payline': 60
+    'moneygram': 60
+    'westernunion': 60
+    'bankofamerica': 60
+    'wellsfargo': 60
+    'citigroup': 60
+    'santander': 60
+    'morganstanley': 60
+    'barclays': 50
+    'hsbc': 50
+    'scottrade': 60
+    'ameritrade': 60
+    'merilledge': 60
+    'bank': 15
+
+# Ecommerce
+    'amazon': 60
+    'overstock': 60
+    'alibaba': 60
+    'aliexpress': 60
+    'leboncoin': 70
+# trabel
+    'trabel': 50
+    'jalan': 70
+    'rakuten': 70
+    'japanican': 70
+    'biglobe': 60
+    'jtb': 30
+    'biyi': 30
+    'hotels': 50
+# covid 19
+    'covid': 70
+    'corona': 70
+    'vaccine': 70
+# Other
+    'netflix': 70
+    'skype': 60
+    'github': 60
+    'onedrive': 60
+    'dropbox': 60
+
+# Miscellaneous & SE tricks
+    'cgi-bin': 50
+    '-com.': 20
+    '.net-': 20
+    '.org-': 20
+    '.com-': 20
+    '.net.': 20
+    '.org.': 20
+    '.com.': 20
+    '.gov-': 30
+    '.gov.': 30
+    '.gouv-': 40
+    '-gouv-': 40
+    '.gouv.': 40
+    'go-jp': 60
+    'co-jp': 60
+    # FR specific
+    'suivi': 50
+    'laposte': 50
+
+# TLDの信頼性評価
+# マッチすると20のスコアが加算されます
+tlds:
+    '.ga':
+    '.gq':
+    '.ml':
+    '.cf':
+    '.tk':
+    '.xyz':
+    '.pw':
+    '.cc':
+    '.club':
+    '.work':
+    '.top':
+    '.support':
+    '.bank':
+    '.info':
+    '.study':
+    '.click':
+    '.country':
+    '.stream':
+    '.gdn':
+    '.mom':
+    '.xin':
+    '.kim':
+    '.men':
+    '.loan':
+    '.download':
+    '.racing':
+    '.online':
+    '.center':
+    '.ren':
+    '.gb':
+    '.win':
+    '.review':
+    '.vip':
+    '.party':
+    '.tech':
+    '.science':
+    '.business':
+
+regex:
+    - pattern: '^connecct-login\.' 
+      description: 'KDDI AU Phishing'
+      score: 150
+
+# 除外するための正規表現
+# 信頼性の高いドメインやノイズの多いドメインを除外します
+exclusions:
+    # 旅行系(https://github.com/111116/jpTravel/blob/master/hotel.md)
+    - '(^|\.)booking.com$'
+    - '(^|\.)jalan.net$'
+    - '(^|\.)rakuten.co.jp$'
+    - '(^|\.)jtb.co.jp$'
+    - '(^|\.)japanican.com$'
+    - '(^|\.)rlx.jp$'
+    - '(^|\.)biglobe.ne.jp$'
+    - '(^|\.)biyi.cn$'
+    - '(^|\.)hotels.cn$'
+    # 日本ドメイン
+    - '(^|\.)jp$'
+    - '(^|\.)ne.jp$'
+    - '(^|\.)surfstadium-japan.com$'
+    - '(^|\.)co.jp$'
+    - '(^|\.)go.jp$'
+    - '(^|\.)quickconnect.to$' # Synology NAS 
+    - '(^|\.)amazonaws.com.cn$'
+    # Defender for Cloud Apps
+    - '(^|\.)mcas-gov.us$'
+    - '(^|\.)mcas-gov.ms$'
+    - '(^|\.)mcas.ms$'
+    - '(^|\.)mcas-df.ms$'
+    - '(^|\.)cas.ms$'
+    - '(^|\.)1password\.com$'
+    - '(^|\.)53\.com$'
+    - '(^|\.)aa\.com$'
+    - '(^|\.)absa.co.za'
+    - '(^|\.)accurint.com'
+    - '(^|\.)adobe\.com$'
+    - '(^|\.)advcash\.com$'
+    - '(^|\.)aetna\.com$'
+    - '(^|\.)alibaba$'
+    - '(^|\.)aliexpress\.com$'
+    - '(^|\.)allegro.pl'
+    - '(^|\.)alliancebank.com.my'
+    - '(^|\.)alliancebank.com'
+    - '(^|\.)amazon\.com$'
+    - '(^|\.)amazonaws\.com$'
+    - '(^|\.)americanexpress.com'
+    - '(^|\.)americangreetings\.com$'
+    - '(^|\.)appdomain\.cloud$'
+    - '(^|\.)apple\.com$'
+    - '(^|\.)arena.net'
+    - '(^|\.)argenta\.be$'
+    - '(^|\.)associatedbank\.com$'
+    - '(^|\.)atb\.com$'
+    - '(^|\.)azure\.com$'
+    - '(^|\.)banco\.bradesco$'
+    - '(^|\.)bankmillennium\.pl$'
+    - '(^|\.)bankofamerica\.com$'
+    - '(^|\.)bankofthewest\.com$'
+    - '(^|\.)baracuda\.com$'
+    - '(^|\.)barclays\.co\.uk$'
+    - '(^|\.)bb\.com\.br$'
+    - '(^|\.)belfius\.be$'
+    - '(^|\.)bendigobank\.com$'
+    - '(^|\.)beobank\.be$'
+    - '(^|\.)bepost\.be$'
+    - '(^|\.)bhdleon\.com\.do$'
+    - '(^|\.)binance\.com$'
+    - '(^|\.)bitconnect\.co$'
+    - '(^|\.)bitfinex\.com$'
+    - '(^|\.)bitflyer\.com$'
+    - '(^|\.)bithumb\.com$'
+    - '(^|\.)bitmex\.com$'
+    - '(^|\.)bitstamp\.com$'
+    - '(^|\.)bittrex\.com$'
+    - '(^|\.)blizzard\.com$'
+    - '(^|\.)blockchain\.com$'
+    - '(^|\.)bmo\.com$'
+    - '(^|\.)bnpparibasfortis\.be$'
+    - '(^|\.)bnymellon\.com$'
+    - '(^|\.)bobox\.com$'
+    - '(^|\.)brilliantpocket\.com$'
+    - '(^|\.)cabletv\.com$'
+    - '(^|\.)cahoot\.com$'
+    - '(^|\.)caixabank\.es$'
+    - '(^|\.)capitalone\.com$'
+    - '(^|\.)capitecbank\.co\.za$'
+    - '(^|\.)careerbuilder\.com$'
+    - '(^|\.)centurylink\.com$'
+    - '(^|\.)certsbridge\.com$'
+    - '(^|\.)cevalogistics\.com$'
+    - '(^|\.)chrobinson\.com$'
+    - '(^|\.)cibc\.com$'
+    - '(^|\.)cimbbank\.com\.sg$'
+    - '(^|\.)citi\.com$'
+    - '(^|\.)citigroup\.com$'
+    - '(^|\.)citizensbank\.com$'
+    - '(^|\.)cloudflaressl\.com$'
+    - '(^|\.)cloudshell\.dev$'
+    - '(^|\.)co-operativebank\.co\.uk$'
+    - '(^|\.)coinbase\.com$'
+    - '(^|\.)coinhive\.com$'
+    - '(^|\.)coinsbank\.com$'
+    - '(^|\.)com\.br\.orzzi\.com$'
+    - '(^|\.)comerica\.com$'
+    - '(^|\.)commbank\.com\.au$'
+    - '(^|\.)composedb\.com$'
+    - '(^|\.)composedb\.direct$'
+    - '(^|\.)cox\.com$'
+    - '(^|\.)craigslist\.org$'
+    - '(^|\.)creditkarma\.com$'
+    - '(^|\.)crelan\.be$'
+    - '(^|\.)cua\.com\.au$'
+    - '(^|\.)dashlane\.com$'
+    - '(^|\.)db\.com$'
+    - '(^|\.)dbschenker\.com$'
+    - '(^|\.)delta\.com$'
+    - '(^|\.)desjardins\.com$'
+    - '(^|\.)dhl\.com$'
+    - '(^|\.)dinersclub\.com$'
+    - '(^|\.)directtv\.com$'
+    - '(^|\.)discover\.com$'
+    - '(^|\.)discovery\.co\.za$'
+    - '(^|\.)docusign\.com$'
+    - '(^|\.)dropbox\.com$'
+    - '(^|\.)ebay\.com$'
+    - '(^|\.)entromoney\.com$'
+    - '(^|\.)eppicard\.com$'
+    - '(^|\.)europabank\.be$'
+    - '(^|\.)facebook\.com$'
+    - '(^|\.)fedex\.com$'
+    - '(^|\.)filemaker-cloud\.com$'
+    - '(^|\.)fintro\.be$'
+    - '(^|\.)firstdirect\.com$'
+    - '(^|\.)firstfedca\.com$'
+    - '(^|\.)flickr\.com$'
+    - '(^|\.)fnb\.co\.za$'
+    - '(^|\.)franklintempleton\.com$'
+    - '(^|\.)gardenislandfcu\.com$'
+    - '(^|\.)gatherfcu\.org$'
+    - '(^|\.)geico\.com$'
+    - '(^|\.)github\.com$'
+    - '(^|\.)gofundme\.com$'
+    - '(^|\.)google\.com$'
+    - '(^|\.)gov\.uk$'
+    - '(^|\.)groupon\.com$'
+    - '(^|\.)gruppocarige\.it$'
+    - '(^|\.)gtbank\.com$'
+    - '(^|\.)halifax\.co\.uk$'
+    - '(^|\.)hitbtc\.com$'
+    - '(^|\.)honeywell\.com$'
+    - '(^|\.)hotmail\.com$'
+    - '(^|\.)hsbc\.co\.uk$'
+    - '(^|\.)huntington\.com$'
+    - '(^|\.)icloud\.com$'
+    - '(^|\.)idex\.market$'
+    - '(^|\.)independentbank\.com$'
+    - '(^|\.)indexexchange\.ae$'
+    - '(^|\.)ing\.com$'
+    - '(^|\.)instagram\.com$'
+    - '(^|\.)interactivebrokers\.com$'
+    - '(^|\.)intesasanpaolo\.com$'
+    - '(^|\.)intuit\.com$'
+    - '(^|\.)itau\.com$'
+    - '(^|\.)key\.com$'
+    - '(^|\.)keytradebank\.be$'
+    - '(^|\.)kgefcu\.org$'
+    - '(^|\.)kiwibank\.co\.nz$'
+    - '(^|\.)kraken\.com$'
+    - '(^|\.)kuehne-nagel\.com$'
+    - '(^|\.)lakebtc\.com$'
+    - '(^|\.)laposte\.fr$'
+    - '(^|\.)lastpass\.com$'
+    - '(^|\.)latam\.com$'
+    - '(^|\.)lbcexpress\.com$'
+    - '(^|\.)leboncoin\.fr$'
+    - '(^|\.)legalbrandmarketing\.com$'
+    - '(^|\.)linkedin\.com$'
+    - '(^|\.)livingsocial\.com$'
+    - '(^|\.)lloydsbank\.com$'
+    - '(^|\.)localbitcoins\.com$'
+    - '(^|\.)lottomatica\.it$'
+    - '(^|\.)maersk\.com$'
+    - '(^|\.)mastercard\.com$'
+    - '(^|\.)mbtrading\.com$'
+    - '(^|\.)meridianbanker\.com$'
+    - '(^|\.)merrilledge\.com$'
+    - '(^|\.)metrobankonline\.co\.uk$'
+    - '(^|\.)microsoft\.com$'
+    - '(^|\.)mobilevikings\.be$'
+    - '(^|\.)moneygram\.com$'
+    - '(^|\.)morganstanley\.com$'
+    - '(^|\.)mybluemix\.net$'
+    - '(^|\.)mycrypto\.com$'
+    - '(^|\.)mydish\.com$'
+    - '(^|\.)myetherwallet\.com$'
+    - '(^|\.)mymonero\.com$'
+    - '(^|\.)myspace\.com$'
+    - '(^|\.)nagelmackers\.be$'
+    - '(^|\.)nantucketbank\.com$'
+    - '(^|\.)nationwide\.com$'
+    - '(^|\.)natwest\.com$'
+    - '(^|\.)nbkc\.com$'
+    - '(^|\.)nedbank\.co\.za$'
+    - '(^|\.)netflix\.com$'
+    - '(^|\.)netsuite\.com$'
+    - '(^|\.)nexi\.it$'
+    - '(^|\.)nordea\.com$'
+    - '(^|\.)nordvpn\.com$'
+    - '(^|\.)office\.com   office365\.com$'
+    - '(^|\.)okpay\.com$'
+    - '(^|\.)onedrive\.live\.com$'
+    - '(^|\.)orkut\.com$'
+    - '(^|\.)outlook\.com$'
+    - '(^|\.)overstock\.com$'
+    - '(^|\.)pagseguro\.uol\.com\.br$'
+    - '(^|\.)panalpina\.com$'
+    - '(^|\.)paxful\.com$'
+    - '(^|\.)payeer\.com$'
+    - '(^|\.)paypal\.com$'
+    - '(^|\.)payza\.eu$'
+    - '(^|\.)peoples\.com$'
+    - '(^|\.)perfectmoney\.is$'
+    - '(^|\.)permanenttsb\.ie$'
+    - '(^|\.)philamlife\.com$'
+    - '(^|\.)pintrest\.com$'
+    - '(^|\.)playapps\.download$'
+    - '(^|\.)pnc\.com$'
+    - '(^|\.)poloniex\.com$'
+    - '(^|\.)post\.ch$'
+    - '(^|\.)protonmail\.com$'
+    - '(^|\.)protonvpn\.com$'
+    - '(^|\.)proximus\.be$'
+    - '(^|\.)rabobank\.nl$'
+    - '(^|\.)rackspace\.com$'
+    - '(^|\.)rbcroyalbank\.com$'
+    - '(^|\.)reddit\.com$'
+    - '(^|\.)redditreaper\.tech'
+    - '(^|\.)remotewd\.com$'
+    - '(^|\.)safra\.com$'
+    - '(^|\.)salemfive\.com$'
+    - '(^|\.)salesforce\.com$'
+    - '(^|\.)santander\.co\.uk$'
+    - '(^|\.)santander\.com\.br$'
+    - '(^|\.)santanderbank\.com$'
+    - '(^|\.)sars\.gov\.za$'
+    - '(^|\.)scotiabank\.com$'
+    - '(^|\.)skrill\.com$'
+    - '(^|\.)skyfinancial(loans)?\.com$'
+    - '(^|\.)skype\.com$'
+    - '(^|\.)smile\.co\.uk$'
+    - '(^|\.)sncf\.com$'
+    - '(^|\.)solidtrustpay\.com$'
+    - '(^|\.)spotify\.com$'
+    - '(^|\.)spotify\.me$'
+    - '(^|\.)starbucks\.com$'
+    - '(^|\.)standardbank\.com$'
+    - '(^|\.)steampowered\.com$'
+    - '(^|\.)stgeorge\.com\.au$'
+    - '(^|\.)suncorp\.com\.au$'
+    - '(^|\.)swedbank\.com$'
+    - '(^|\.)td(canadatrust)?\.com$'
+    - '(^|\.)tdameritrade\.com$'
+    - '(^|\.)tesco\.com$'
+    - '(^|\.)tibia\.com$'
+    - '(^|\.)tippr\.rocketr\.net$'
+    - '(^|\.)trello\.com$'
+    - '(^|\.)tumblr\.com$'
+    - '(^|\.)tunnelbear\.com$'
+    - '(^|\.)tutanota\.com$'
+    - '(^|\.)twitter\.com$'
+    - '(^|\.)unicredit\.it$'
+    - '(^|\.)update\.orfelin\.com$'
+    - '(^|\.)ups\.com$'
+    - '(^|\.)usaa\.com$'
+    - '(^|\.)usbank\.com$'
+    - '(^|\.)usgovcloudapi\.net$'
+    - '(^|\.)verizon\.com $'
+    - '(^|\.)verizonwireless\.com$'
+    - '(^|\.)visa\.com$'
+    - '(^|\.)vmwarevmc\.com$'
+    - '(^|\.)vodafone\.com$'
+    - '(^|\.)vr\.de$'
+    - '(^|\.)walmart\.com$'
+    - '(^|\.)weezzo\.com$'
+    - '(^|\.)wellsfargo\.com$'
+    - '(^|\.)westernunion\.com$'
+    - '(^|\.)westpac\.co\.au$'
+    - '(^|\.)whatsapp\.com$'
+    - '(^|\.)windows\.net$'
+    - '(^|\.)wmtransfer\.com$'
+    - '(^|\.)xapo\.com$'
+    - '(^|\.)yahoo\.com$'
+    - '(^|\.)yandex\.com$'
+    - '(^|\.)youtube\.com$'
+    - '(^|\.)zendesk-staging\.com$'
+    - '\.edu$'
+    - '\.gov$'
+    - '\.mil$'
+    - '^(\w+-)+[a-f0-9]{8}'
+    - '^autodiscover\.'
+    - '^gameflex\.'
+    - '^iframes\.ampify\.ga$'
+    - '^linuxupdateserver\.aradex\.com$'
+    - '^STH-for-'
+    - '^www\.'
+    - 'chat\.kowari\.macmoney\.co\.za$'
+    - 'facebook\.sitechs\.net$'
