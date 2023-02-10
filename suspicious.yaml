@@ -506,4 +506,3 @@ exclusions:
     - '^www\.'
     - 'chat\.kowari\.macmoney\.co\.za$'
     - 'facebook\.sitechs\.net$'
-
