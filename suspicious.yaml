@@ -1,4 +1,4 @@
-version: "0.0.1"
+version: "0.0.2"
 minimum_score: 0
 # キーワードマッチング
 # キーワードとスコアをハッシュで記述してください。
@@ -506,3 +506,173 @@ exclusions:
     - '^www\.'
     - 'chat\.kowari\.macmoney\.co\.za$'
     - 'facebook\.sitechs\.net$'
+    # https://gist.github.com/phishing-hunter/312ddbcf60e6179581bad7fcebb2b9bc
+    - '(^|\.)www.fedex.com$' # 2023-02-01 FedEx
+    - '(^|\.)www.eposcard.co.jp$' # 2023-02-01 エポスカード
+    - '(^|\.)www.au.com$' # 2023-02-01 au
+    - '(^|\.)connect.auone.jp$' # 2023-02-01 au
+    - '(^|\.)amazon.co.jp$' # 2023-02-02 Amazon
+    - '(^|\.)www.amazon.co.jp$' # 2023-02-02 Amazon
+    - '(^|\.)*.amazon.co.jp$' # 2023-02-02 Amazon
+    - '(^|\.)www.orico.co.jp$' # 2023-02-02 Orico
+    - '(^|\.)orico.jp$' # 2023-02-02 Orico
+    - '(^|\.)*.orico.co.jp$' # 2023-02-02 Orico
+    - '(^|\.)www.orico.tv$' # 2023-02-02 Orico
+    - '(^|\.)www.etc-meisai.jp$' # 2023-02-01 ETC利用照会サービス
+    - '(^|\.)www2.etc-meisai.jp$' # 2023-02-01 ETC利用照会サービス
+    - '(^|\.)www.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)aihoken.web.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)anm.smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)application.ald.smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)app-manager.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)biz-rescue.smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)c.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)dcard.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)d-card.smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)dpoint.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)global.id.smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)gpcp204.tda.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)gs.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)id.smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)id-biz.smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)loan.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)payment2.smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)roaming.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)service.smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)spmode.smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)ssw.web.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)support2.smt.docomo.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)www.ahamo.com$' # 2023-02-02 NTT docomo
+    - '(^|\.)ahamo.com$' # 2023-02-02 NTT docomo
+    - '(^|\.)apps.dmkt-sp.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)d-card.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)docomo.d-card.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)info.d-card.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)docomohikari-web.ad.at.nttdocomo.co.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)dpoint.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)ndo.docomo-de.net$' # 2023-02-02 NTT docomo
+    - '(^|\.)spf.spmode.ne.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)www.dcm-b.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)www.mydocomo.com$' # 2023-02-02 NTT docomo
+    - '(^|\.)www.nttdocomo.co.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)www.ntt-west.co.jp$' # 2023-02-02 NTT docomo
+    - '(^|\.)flets.com$' # 2023-02-02 NTT docomo
+    - '(^|\.)flets-w.com$' # 2023-02-02 NTT docomo
+    - '(^|\.)www.hikaritv.net$' # 2023-02-02 ひかりTV
+    - '(^|\.)app.hikaritv.net$' # 2023-02-02 ひかりTV
+    - '(^|\.)help.hikaritv.net$' # 2023-02-02 ひかりTV
+    - '(^|\.)www.linkedin.com$' # 2023-02-03 LinkedIn
+    - '(^|\.)jp.linkedin.com$' # 2023-02-03 LinkedIn
+    - '(^|\.)www.smbc-card.com$' # 2023-02-03 三井住友カード
+    - '(^|\.)www.eki-net.com$' # 2023-02-03 えきねっと
+    - '(^|\.)www.aeon.co.jp$' # 2023-02-01 イオンカード
+    - '(^|\.)americanexpress.com$' # 2023-02-03 American Express
+    - '(^|\.)network.americanexpress.com$' # 2023-02-03 American Express
+    - '(^|\.)global.americanexpress.com$' # 2023-02-03 American Express
+    - '(^|\.)online.americanexpress.com$' # 2023-02-03 American Express
+    - '(^|\.)www.nhk.or.jp$' # 2023-02-03 NHK
+    - '(^|\.)pid.nhk.or.jp$' # 2023-02-03 NHK
+    - '(^|\.)www.plala.or.jp$' # 2023-02-02 ぷらら
+    - '(^|\.)guide.plala.or.jp$' # 2023-02-02 ぷらら
+    - '(^|\.)help.plala.or.jp$' # 2023-02-02 ぷらら
+    - '(^|\.)web1.plala.or.jp$' # 2023-02-02 ぷらら
+    - '(^|\.)www.alpha-mail.jp$' # 2023-02-07 アルファメール
+    - '(^|\.)www.resonabank.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)ib.resonabank.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)point.resona-gr.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)www.resona-gr.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)www2.resona-gr.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)www.resona-gr.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)net.resona-gr.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)web.resona-gr.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)web.resona-gr.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)link.resona-gr.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)www.resonabank.anser.or.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)resona-d.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)www.resonabank.anser.or.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)www.resona-tb.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)dcweb.resona-tb.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)nenkin.resona-tb.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)enenkin.resona-tb.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)401k.resona-tb.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)wb.resona-gr.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)resonabank.resv.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)resona-bank.resv.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)ct.resona-chatbot.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)resona-gr.secure.force.com$' # 2023-02-07 りそな銀行
+    - '(^|\.)www.info.resonabank.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)resonabank-east.resv.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)resonabank-west.resv.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)www.b-direct.resonabank.co.jp$' # 2023-02-07 りそな銀行
+    - '(^|\.)www.saitamaresona.co.jp$' # 2023-02-07 埼玉りそな銀行
+    - '(^|\.)ib.saitamaresona.co.jp$' # 2023-02-07 埼玉りそな銀行
+    - '(^|\.)www.saitamaresona.anser.or.jp$' # 2023-02-07 埼玉りそな銀行
+    - '(^|\.)www.info.saitamaresona.co.jp$' # 2023-02-07 埼玉りそな銀行
+    - '(^|\.)www.b-direct.saitamaresona.co.jp$' # 2023-02-07 埼玉りそな銀行
+    - '(^|\.)www.kmfg.co.jp$' # 2023-02-07 関西みらいフィナンシャルグループ
+    - '(^|\.)ib.kansaimiraibank.co.jp$' # 2023-02-07 関西みらい銀行
+    - '(^|\.)www.kansaimiraibank.co.jp$' # 2023-02-07 関西みらい銀行
+    - '(^|\.)www.kansaimiraibank.anser.or.jp$' # 2023-02-07 関西みらい銀行
+    - '(^|\.)www.info.kansaimiraibank.co.jp$' # 2023-02-07 関西みらい銀行
+    - '(^|\.)www.b-direct.kansaimiraibank.co.jp$' # 2023-02-07 関西みらい銀行
+    - '(^|\.)www.nta.go.jp$' # 2023-02-08 国税庁
+    - '(^|\.)www.microsoft.com$' # 2023-02-01 Microsoft
+    - '(^|\.)www.adobe.com$' # 2023-02-01 Adobe
+    - '(^|\.)www.visa.co.jp$' # 2023-02-01 VISA
+    - '(^|\.)www.mistore.jp$' # 2023-02-01 三越伊勢丹
+    - '(^|\.)www2.micard.co.jp$' # 2023-02-01 MICARD
+    - '(^|\.)www.saisoncard.co.jp$' # 2023-02-01 SAISON CARD
+    - '(^|\.)gmo-aozora.com$' # 2023-02-01 GMOあおぞらネット銀行
+    - '(^|\.)www.rakuten-card.co.jp$' # 2023-02-01 楽天カード
+    - '(^|\.)www.mufg.jp$' # 2023-02-01 三菱UFJフィナンシャルグループ
+    - '(^|\.)www.rakuten.co.jp$' # 2023-02-01 楽天
+    - '(^|\.)www.stnet.co.jp$' # 2023-02-01 STNet
+    - '(^|\.)www.boy.co.jp$' # 2023-02-01 横浜銀行
+    - '(^|\.)www.softbank.co.jp$' # 2023-02-01 softbank
+    - '(^|\.)www.yodobashi.com$' # 2023-02-01 ヨドバシカメラ
+    - '(^|\.)www.biglobe.ne.jp$' # 2023-02-01 BIGLOBE
+    - '(^|\.)www.post.japanpost.jp$' # 2023-02-01 日本郵便
+    - '(^|\.)www.aplus.co.jp$' # 2023-02-01 アプラス
+    - '(^|\.)www.mizuhobank.co.jp$' # 2023-02-01 みずほ銀行
+    - '(^|\.)www.mobilesuica.com$' # 2023-02-01 モバイルSuica
+    - '(^|\.)www.tiktok.com$' # 2023-02-01 TikTok
+    - '(^|\.)ts3card.com$' # 2023-02-02 TS CUBIC CARD_MY TS3
+    - '(^|\.)tscubic.com$' # 2023-02-02 TS CUBIC CARD_MY TS3
+    - '(^|\.)my.tscubic.com$' # 2023-02-02 TS CUBIC CARD_MY TS3
+    - '(^|\.)www.netflix.com$' # 2023-02-01 Netflix
+    - '(^|\.)www.yahoo.co.jp$' # 2023-02-01 Yahoo! JAPAN
+    - '(^|\.)www.kuronekoyamato.co.jp$' # 2023-02-01 ヤマト運輸
+    - '(^|\.)outlook.office.com$' # 2023-02-01 Outlook Web App
+    - '(^|\.)outlook.live.com$' # 2023-02-01 Outlook Web App
+    - '(^|\.)www.cr.mufg.jp$' # 2023-02-01 三菱UFJニコス
+    - '(^|\.)www.pocketcard.co.jp$' # 2023-02-01 ポケットカード
+    - '(^|\.)paypay.ne.jp$' # 2023-02-01 PayPay
+    - '(^|\.)www.smbc.co.jp$' # 2023-02-01 三井住友銀行
+    - '(^|\.)parco.jp$' # 2023-02-01 PARCO
+    - '(^|\.)metamask.io$' # 2023-02-01 Metamask
+    - '(^|\.)us.etrade.com$' # 2023-02-01 E*TRADE
+    - '(^|\.)www2.uccard.co.jp$' # 2023-02-01 UC Card
+    - '(^|\.)www.kddi.com$' # 2023-02-01 KDDI
+    - '(^|\.)ja-jp.facebook.com$' # 2023-02-01 Facebook
+    - '(^|\.)www.costco.co.jp$' # 2023-02-01 Costco
+    - '(^|\.)jp.mercari.com$' # 2023-02-01 メルカリ
+    - '(^|\.)www.mhlw.go.jp$' # 2023-02-01 厚生労働省
+    - '(^|\.)www.dhl.com$' # 2023-02-01 DHL
+    - '(^|\.)www.nifty.com$' # 2023-02-01 nifty
+    - '(^|\.)www.jalan.net$' # 2023-02-01 じゃらん
+    - '(^|\.)www.resonacard.co.jp$' # 2023-02-01 りそなカード
+    - '(^|\.)www.nenkin.go.jp$' # 2023-02-01 日本年金機構
+    - '(^|\.)www.jcb.co.jp$' # 2023-02-01 JCB
+    - '(^|\.)www.uniqlo.com$' # 2023-02-01 UNIQLO
+    - '(^|\.)www.lifecard.co.jp$' # 2023-02-01 LIFE CARD
+    - '(^|\.)www.binance.com$' # 2023-02-01 BINANCE
+    - '(^|\.)moneykit.net$' # 2023-02-01 ソニー銀行
+    - '(^|\.)sonybank.net$' # 2023-02-01 ソニー銀行
+    - '(^|\.)www.onamae.com$' # 2023-02-01 お名前.com
+    - '(^|\.)www.xserver.co.jp$' # 2023-02-01 エックスサーバー株式会社
+    - '(^|\.)www.fujiidaimaru.co.jp$' # 2023-02-01 藤井大丸
+    - '(^|\.)www.smbc-fs.co.jp$' # 2023-02-01 SMBC ファイナンスサービス
+    - '(^|\.)www.citi.com$' # 2023-02-01 CitiBank
+    - '(^|\.)www.montbell.jp$' # 2023-02-01 mont-bell
+    - '(^|\.)www.bk.mufg.jp$' # 2023-02-01 三菱UFJ銀行
