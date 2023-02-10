@@ -5,6 +5,8 @@ on:
     branches:
       - main
       - develop
+    paths:
+      - '.github/workflows/release-config.yaml'
     tags:
       - '*'
 jobs:
