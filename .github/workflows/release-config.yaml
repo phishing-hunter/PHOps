@@ -15,7 +15,7 @@ jobs:
       image: phishinghunter/cert-hunter:latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
     - name: Install dependencies
       run: |
         pip install requests
