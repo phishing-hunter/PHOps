@@ -10,7 +10,6 @@ on:
 jobs:
   build-push:
     runs-on: ubuntu-latest
-    needs: tests
     if: github.actor == 'phishing-hunter'
     container:
       image: phishinghunter/cert-hunter:latest
