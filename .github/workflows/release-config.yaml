@@ -5,39 +5,9 @@ on:
     branches:
       - main
       - develop
-    paths:
-      - 'rules/**'
-      - 'suspicious.yaml'
-      - '.github/workflows/release-config.yaml'
     tags:
       - '*'
 jobs:
-  tests:
-    runs-on: ubuntu-latest
-    container: 
-      image: phishinghunter/cert-hunter:latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-    - name: Get changed files using defaults
-      id: changed-files
-      uses: tj-actions/changed-files@v32
-    - name: List all added files
-      run: |
-         for file in ${{ steps.changed-files.outputs. modified_files }}; do
-            echo "$file was modified."
-         done
-    - name: Check configuration
-      if: contains(steps.changed-files.outputs.all_changed_files, 'suspicious.yaml')
-      run: python /app/checker.py suspicious.yaml -m 500 -s 150
-    - name: Test Yara rules
-      run: |
-        touch rules/detection/ssl/sslblacklist.yar
-        ./rules/index.sh
-        yara rules/index_test.yar /test.zip
-
   build-push:
     runs-on: ubuntu-latest
     needs: tests

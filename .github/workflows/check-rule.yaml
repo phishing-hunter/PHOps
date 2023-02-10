@@ -1,0 +1,22 @@
+# https://zenn.dev/tatsugon/articles/github-actions-permission-error
+name: Phishing Hunter Check Rule
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'rules/**'
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    container: 
+      image: phishinghunter/cert-hunter:latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Test Yara rules
+      run: |
+        touch rules/detection/ssl/sslblacklist.yar
+        ./rules/index.sh
+        yara rules/index_test.yar /test.zip

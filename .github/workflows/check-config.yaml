@@ -1,0 +1,20 @@
+# https://zenn.dev/tatsugon/articles/github-actions-permission-error
+name: Phishing Hunter Check Config
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'suspicious.yaml'
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    container: 
+      image: phishinghunter/cert-hunter:latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Check configuration
+      if: contains(steps.changed-files.outputs.all_changed_files, 'suspicious.yaml')
+      run: python /app/checker.py suspicious.yaml -m 500 -s 150
